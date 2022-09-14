@@ -5,6 +5,7 @@ import 'package:heroicons/heroicons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../config/theme.dart';
+import '../../data/icons.dart';
 import '../../data/models/icon_info.dart';
 import '../../states/search_state.dart';
 import '../../states/theme_mode_state.dart';
@@ -128,7 +129,7 @@ class HomeScreen extends ConsumerWidget {
               const EdgeInsets.only(left: 12, top: 2, right: 12, bottom: 88),
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
-          itemCount: heroiconsMapping.keys
+          itemCount: heroIconsMapping.keys
                   .where((dynamic k) => k
                       .toString()
                       .toLowerCase()
@@ -175,7 +176,7 @@ class HomeScreen extends ConsumerWidget {
               );
             }
 
-            final MapEntry<String, HeroIcons> entry = heroiconsMapping.entries
+            final MapEntry<String, HeroIcons> entry = heroIconsMapping.entries
                 .where((MapEntry<String, HeroIcons> v) => v.key
                     .toLowerCase()
                     .contains(search.query?.toLowerCase() ?? ''))
